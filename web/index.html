@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transimate Assistant — AI Campus Transport Agent</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">T</span>
+      <div>
+        <h1>Transimate Assistant</h1>
+        <p class="tagline">AI Campus Transport Agent</p>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <span class="live-badge" id="liveBadge"><span class="dot"></span> LIVE</span>
+      <span class="clock" id="clock">08:00</span>
+      <select id="persona" title="Ask as">
+        <option value="student">Student</option>
+        <option value="parent">Parent</option>
+        <option value="admin">Transport Admin</option>
+      </select>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>Try asking</h2>
+      <div class="suggestions" id="suggestions"></div>
+      <div class="sidebar-foot">
+        <p>Buses move in real time. Ask about any route <b>R1–R5</b>, bus <b>B1–B12</b>, or stop by name.</p>
+      </div>
+    </aside>
+
+    <main class="main">
+      <nav class="tabs">
+        <button class="tab active" data-tab="assistant">Assistant</button>
+        <button class="tab" data-tab="map">Live Map</button>
+        <button class="tab" data-tab="admin">Admin Analytics</button>
+      </nav>
+
+      <section class="tab-panel active" id="tab-assistant">
+        <div class="chat" id="chat"></div>
+        <form class="composer" id="composer">
+          <input id="input" autocomplete="off" placeholder="Ask about buses, routes, stops, delays…" />
+          <button type="submit">Ask →</button>
+        </form>
+      </section>
+
+      <section class="tab-panel" id="tab-map">
+        <div class="map-wrap">
+          <svg id="map" viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid meet"></svg>
+          <div class="map-legend" id="mapLegend"></div>
+        </div>
+        <div class="bus-panel" id="busPanel"></div>
+      </section>
+
+      <section class="tab-panel" id="tab-admin">
+        <div class="admin-grid" id="adminGrid"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
